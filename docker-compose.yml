@@ -1,0 +1,18 @@
+version: '1.0'
+networks:
+  default:
+    name: oss-village-fund
+    external: true
+volumes:
+  app:
+    name: village-fund-api
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: village-fund-api
+    ports:
+      - '${APP_PORT}:${APP_PORT}'
+    volumes:
+      - ./src:/app/src
